@@ -27,13 +27,13 @@ CHECKSUM=$(swift package compute-checksum build/kotoba-tts.xcframework.zip)
 echo "Checksum: $CHECKSUM"
 echo "Creating Package.swift..."
 cat > Package.swift << EOF
-// swift-tools-version: 5.7
+// swift-tools-version: 5.9
 import PackageDescription
 
 let package = Package(
     name: "kotoba-tts",
     platforms: [
-        .iOS(.v18.2)
+        .iOS(.v17)
     ],
     products: [
         .library(

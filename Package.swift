@@ -1,10 +1,10 @@
-// swift-tools-version: 5.7
+// swift-tools-version: 5.9
 import PackageDescription
 
 let package = Package(
     name: "kotoba-tts",
     platforms: [
-        .iOS(.v18.2)
+        .iOS(.v17)
     ],
     products: [
         .library(
@@ -16,7 +16,7 @@ let package = Package(
         .binaryTarget(
             name: "kotoba-tts",
             url: "https://github.com/kotoba-tech/kotoba-swift-package/releases/download/1.0.0/kotoba-tts.xcframework.zip",
-            checksum: "e2d5478bb09897e1195e7a00ef4bbea1d25d76f18612ed6dc60a1f8aaa2c71ed"
+            checksum: "b72c23523fcc381536b49c925e176c686803be0d4d01b0b0d1e55580c8f68bf4"
         )
     ]
 )
