@@ -1,0 +1,4 @@
+[submodule "kotoba-swift"]
+	path = kotoba-swift
+	url = https://github.com/kotoba-tech/kotoba-swift.git
+	branch = jg/create-sdk
