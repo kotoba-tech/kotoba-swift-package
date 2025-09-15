@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VERSION="1.0.2"
+VERSION="1.0.3"
 
 git submodule update --init --remote --recursive
 cd kotoba-swift
@@ -21,7 +21,8 @@ xcodebuild -create-xcframework \
     -output ../build/kotoba-tts.xcframework
 cd ..
 echo "Zipping XCFramework..."
-zip -r build/kotoba-tts.xcframework.zip build/kotoba-tts.xcframework
+cd build
+zip -r ../kotoba-tts.xcframework.zip kotoba-tts.xcframework
 echo "Computing checksum..."
 CHECKSUM=$(swift package compute-checksum build/kotoba-tts.xcframework.zip)
 echo "Checksum: $CHECKSUM"
