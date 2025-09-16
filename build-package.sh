@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-VERSION="1.0.6"
+VERSION="1.0.7"
 
 git submodule update --init --remote --recursive
 cd kotoba-swift
 ./setup-xcframework.sh
 rm -rf build/
 xcodebuild -project kotoba-swift.xcodeproj \
-    -scheme kotoba-tts \
+    -scheme kotoba_tts \
     -configuration Release \
     -sdk iphoneos \
     -derivedDataPath ../build \
@@ -18,13 +18,13 @@ xcodebuild -project kotoba-swift.xcodeproj \
     archive
 xcodebuild -create-xcframework \
     -framework ../build/ios-device.xcarchive/Products/Library/Frameworks/kotoba_tts.framework \
-    -output ../build/kotoba-tts.xcframework
+    -output ../build/kotoba_tts.xcframework
 cd ..
 echo "Zipping XCFramework..."
 cd build
-zip -r ../kotoba-tts.xcframework.zip kotoba-tts.xcframework
+zip -r ../kotoba_tts.xcframework.zip kotoba_tts.xcframework
 echo "Computing checksum..."
-CHECKSUM=$(swift package compute-checksum build/kotoba-tts.xcframework.zip)
+CHECKSUM=$(swift package compute-checksum build/kotoba_tts.xcframework.zip)
 echo "Checksum: $CHECKSUM"
 echo "Creating Package.swift..."
 cat > Package.swift << EOF
@@ -32,20 +32,20 @@ cat > Package.swift << EOF
 import PackageDescription
 
 let package = Package(
-    name: "kotoba-tts",
+    name: "kotoba_tts",
     platforms: [
         .iOS(.v17)
     ],
     products: [
         .library(
-            name: "kotoba-tts",
-            targets: ["kotoba-tts"]
+            name: "kotoba_tts",
+            targets: ["kotoba_tts"]
         )
     ],
     targets: [
         .binaryTarget(
-            name: "kotoba-tts",
-            url: "https://github.com/kotoba-tech/kotoba-swift-package/releases/download/$VERSION/kotoba-tts.xcframework.zip",
+            name: "kotoba_tts",
+            url: "https://github.com/kotoba-tech/kotoba-swift-package/releases/download/$VERSION/kotoba_tts.xcframework.zip",
             checksum: "$CHECKSUM"
         )
     ]
@@ -55,6 +55,6 @@ EOF
 echo "Package.swift created!"
 echo ""
 echo "Next steps:"
-echo "1. Upload build/kotoba-tts.xcframework.zip to GitHub release $VERSION"
+echo "1. Upload build/kotoba_tts.xcframework.zip to GitHub release $VERSION"
 echo "2. Commit and push Package.swift"
 echo "3. Tag the release with: git tag $VERSION && git push --tags"
