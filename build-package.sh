@@ -17,7 +17,6 @@ if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
 fi
 
 echo "Building package with version: $VERSION"
-echo ""
 
 git submodule update --init --remote --recursive
 cd kotoba-swift
@@ -76,4 +75,4 @@ echo ""
 echo "Next steps:"
 echo "1. Upload build/kotoba_tts.xcframework.zip to GitHub release $VERSION"
 echo "2. Commit and push Package.swift"
-echo "3. Tag the release with: git tag $VERSION && git push --tags"
+echo "3. Tag the release with: 'git tag $VERSION && git push --tags' or use GitHub"
