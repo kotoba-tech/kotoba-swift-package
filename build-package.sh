@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-VERSION="1.0.3"
+VERSION="1.0.5"
 
 git submodule update --init --remote --recursive
 cd kotoba-swift
