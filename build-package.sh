@@ -23,11 +23,12 @@ cd ..
 echo "Zipping XCFramework..."
 cd build
 zip -r ../kotoba_tts.xcframework.zip kotoba_tts.xcframework
+cd ..
 echo "Computing checksum..."
-CHECKSUM=$(swift package compute-checksum build/kotoba_tts.xcframework.zip)
+CHECKSUM=$(swift package compute-checksum kotoba_tts.xcframework.zip)
 echo "Checksum: $CHECKSUM"
 echo "Creating Package.swift..."
-cat > Package.swift << EOF
+cat >| Package.swift << EOF
 // swift-tools-version: 5.9
 import PackageDescription
 
