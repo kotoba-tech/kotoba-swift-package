@@ -23,6 +23,7 @@ git submodule update --init --remote --recursive
 cd kotoba-swift
 ./setup-xcframework.sh
 rm -rf build/
+rm -rf kotoba_tts.xcframework.zip
 xcodebuild -project kotoba-swift.xcodeproj \
     -scheme kotoba_tts \
     -configuration Release \
