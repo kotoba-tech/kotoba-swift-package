@@ -1,6 +1,23 @@
 #!/usr/bin/env bash
 
-VERSION="1.0.9"
+# Check if version argument is provided
+if [ $# -eq 0 ]; then
+    echo "Error: Version string is required"
+    echo "Usage: $0 <version>"
+    echo "Example: $0 1.0.9"
+    exit 1
+fi
+
+VERSION="$1"
+
+# Validate version format (X.Y.Z where X, Y, Z are integers)
+if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+    echo "Error: Invalid version format. Please use X.Y.Z format where X, Y, and Z are integers (e.g., 1.0.9, 2.10.0)"
+    exit 1
+fi
+
+echo "Building package with version: $VERSION"
+echo ""
 
 git submodule update --init --remote --recursive
 cd kotoba-swift
