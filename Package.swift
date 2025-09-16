@@ -15,8 +15,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "kotoba_tts",
-            url: "https://github.com/kotoba-tech/kotoba-swift-package/releases/download/1.0.7/kotoba_tts.xcframework.zip",
-            checksum: "1b963adc9fa53c7cf01a9f7310cce7471d609af9b4a9cf37aaac96b8b8f6bc95"
+            url: "https://github.com/kotoba-tech/kotoba-swift-package/releases/download/1.0.9/kotoba_tts.xcframework.zip",
+            checksum: "eb25a651b3b29b908215f2efab027bbbd3f3afa712de85d858c3fa6eea0d678c"
         )
     ]
 )
